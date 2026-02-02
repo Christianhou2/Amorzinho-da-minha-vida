@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Uma pergunta muito importante 💖</title>
+
+<style>
+body {
+    background: pink;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 40px;
+    color: #c4004f;
+}
+
+p {
+    font-size: 20px;
+}
+
+button {
+    font-size: 22px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#sim {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+#nao {
+    background-color: #555;
+    color: white;
+    position: absolute;
+}
+
+.coraçao {
+    position: fixed;
+    font-size: 24px;
+    animation: cair 5s linear infinite;
+}
+
+@keyframes cair {
+    from { top: -10%; }
+    to { top: 110%; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>💘 Queres ser o meu par neste Dia dos Namorados? 💘</h1>
+
+<p>Prometo amor, risadas, gatinhos e muitos abraços 🐱❤️</p>
+
+<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="200"><br><br>
+
+<button id="sim" onclick="aceitou()">SIM 💖</button>
+<button id="nao" onmouseover="fugir()">NÃO 😼</button>
+
+<script>
+function aceitou() {
+    document.body.innerHTML = `
+    <h1>EU SABIA!!! 😍💖</h1>
+    <p>Agora somos oficialmente par no Dia dos Namorados 💘</p>
+    <img src="https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif" width="300">
+    `;
+}
+
+function fugir() {
+    const botao = document.getElementById("nao");
+    botao.style.left = Math.random() * window.innerWidth + "px";
+    botao.style.top = Math.random() * window.innerHeight + "px";
+}
+
+// corações a cair
+setInterval(() => {
+    const coracao = document.createElement("div");
+    coracao.className = "coraçao";
+    coracao.innerHTML = "❤️";
+    coracao.style.left = Math.random() * 100 + "%";
+    document.body.appendChild(coracao);
+    setTimeout(() => coracao.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
